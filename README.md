@@ -1,5 +1,7 @@
 # MKIPorter
 
+Gets you a random free TCP Port using C APIs
+
 [![CI Status](http://img.shields.io/travis/Marcus Kida/MKIPorter.svg?style=flat)](https://travis-ci.org/Marcus Kida/MKIPorter)
 [![Version](https://img.shields.io/cocoapods/v/MKIPorter.svg?style=flat)](http://cocoadocs.org/docsets/MKIPorter)
 [![License](https://img.shields.io/cocoapods/l/MKIPorter.svg?style=flat)](http://cocoadocs.org/docsets/MKIPorter)
@@ -7,7 +9,18 @@
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+You may use a Singleton Instance of MKIPorter to allocate a free TCP Port like this like this:
+
+```
+MKIPorter *porter = [MKIPorter sharedInstance];
+NSError *error;
+NSInteger port = [porter allocatePort:&error];
+if (error) {
+	NSLog(@"An error occured: %@", error);
+	return;
+}
+NSLog(@"Free Port: %d", port);
+```
 
 ## Requirements
 
@@ -20,7 +33,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Marcus Kida, mkida@atlassian.com
+Marcus Kida, marcus@kida.io
 
 ## License
 
