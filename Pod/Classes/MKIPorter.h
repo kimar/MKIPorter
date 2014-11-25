@@ -25,7 +25,7 @@
  *
  *  @return A Singleton of this class
  */
-- (instancetype)sharedInstance;
++ (instancetype)sharedInstance;
 
 /**
  *  Performs a new TCP Port allocation

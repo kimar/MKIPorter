@@ -17,8 +17,8 @@
 
 @implementation MKIPorter
 
-- (instancetype)sharedInstance {
-    static typeof(self) instance = nil;
++ (instancetype)sharedInstance {
+    static MKIPorter *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[self.class alloc] init];
